@@ -27,7 +27,7 @@ def generate_prompt():
         "A software startup is preparing to launch a new product in a fast-changing industry.",
     ]
 
-    names = ["Carter", "Wesley", "Jordan", "Taylor", "Morgan", "Avery", "Riley", "Casey"]
+    names = ["Carter", "Wesley", "Jordan", "Taylor", "Morgan", "Avery", "Riley", "Casey", "Allie"]
     person_name = random.choice(names)
 
     if person_name not in {"Carter", "Wesley"}:
@@ -207,75 +207,8 @@ def explain_decision(business_capital, investment_cost, market_demand, competiti
     print(f"- Your risk level was {level_description}.")
 
 
-def generate_study_questions(count=20):
-    """Generate a list of study prompts with random names and question prompts."""
-    names = [
-        "Ali Carter",
-        "Maya Patel",
-        "Marco Silva",
-        "Zoe Kim",
-        "Devonte Green",
-        "Priya Singh",
-        "Ethan Brooks",
-        "Lina Chen",
-        "Omar Diaz",
-        "Sienna Thomas",
-        "Noah Reed",
-        "Amara Williams",
-        "Jacob Nguyen",
-        "Hana Lee",
-        "Leo Johnson",
-        "Gabriela Torres",
-        "Miles Anderson",
-        "Kiara Brown",
-        "Isaac Miller",
-        "Sofia Alvarez",
-        "Jordan Park",
-        "Nina Rivera",
-        "Evan Scott",
-        "Mia Walker",
-        "Cole Bennett",
-    ]
-    question_templates = [
-        "What are the key assumptions behind this model?",
-        "How would you explain this concept in one sentence?",
-        "What is the most likely source of error here?",
-        "Which variables have the biggest impact on the outcome?",
-        "How can this process be simplified?",
-        "What is the intuition behind this formula?",
-        "Where could this method fail?",
-        "What would you change to make this more robust?",
-        "How does this result compare to the baseline?",
-        "What is the first step in verifying this?",
-        "Why does this approach work better than the alternative?",
-        "What data do we still need to confirm this?",
-        "Which assumption is most fragile?",
-        "How can you test this idea quickly?",
-        "What is the simplest way to describe this?",
-        "Which part of this logic is hardest to justify?",
-        "How would you explain this to a beginner?",
-        "What would happen if one input changed?",
-        "Which conclusion is most important here?",
-        "What question would you ask next?",
-    ]
-
-    sampled_names = random.sample(names, count)
-    sampled_questions = random.sample(question_templates, count)
-
-    return [f"{i + 1}. {sampled_names[i]} — {sampled_questions[i]}" for i in range(count)]
-
-
-def print_study_prompts():
-    """Print the generated study prompts for the user."""
-    print("\nStudy Prompts")
-    print("-------------")
-    for prompt in generate_study_questions():
-        print(prompt)
-
-
 def main():
     """Run the simulator and show the result."""
-    print_study_prompts()
     while True:
         print_intro()
         prompt, interest_rate, unemployment_rate, business_capital, investment_cost, market_demand, competition = generate_prompt()
